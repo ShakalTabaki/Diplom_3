@@ -5,7 +5,7 @@ from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from pages.login_page import LoginPage
-from data import LOGIN_URL
+from data import LOGIN_URL, EMAIL, PASSWORD
 
 
 @pytest.fixture(params=["firefox", "chrome"])
@@ -26,8 +26,8 @@ def driver(request):
 @pytest.fixture
 def auth_user(driver):
 
-    email = "gimpel_36@gmail.com"
-    password = "123456"
+    email = EMAIL
+    password = PASSWORD
 
     login_page = LoginPage(driver)
 
