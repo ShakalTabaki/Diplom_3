@@ -53,19 +53,6 @@ class BasePage:
         element.clear()
         element.send_keys(text)
 
-    # @allure.step("Ожидание кликабельности элемента")
-    # def wait_for_clickable(self, locator):
-    #     return WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(locator))
-
-    # @allure.step("Клик по элементу")
-    # def click_element(self, locator):
-    #     self.wait_for_clickable(locator).click()
-
-    # @allure.step("Получить текст элемента")
-    # def get_text_from_element(self, locator):
-    #     element = self.wait_for_element(locator)
-    #     return element.text
-
     @allure.step("Ожидание изменения текста элемента")
     def wait_for_text_not_to_be(self, locator, texts, timeout=15):
         return WebDriverWait(self.driver, timeout).until(lambda d: d.find_element(*locator).text not in texts)
